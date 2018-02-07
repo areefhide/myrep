@@ -30,6 +30,36 @@
         android:textSize="22sp"
         android:textStyle="bold"/>
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/tvName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginTop="11dp">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginTop="11dp">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
    
 </RelativeLayout>
