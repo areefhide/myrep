@@ -9,19 +9,19 @@ public class PersonalInfo {
     private String first_name;
     private String last_name;
     private String company;
-    private String full_name;
+
     private String installer_id;
     private String photo;
     private String mobile;
     private String phone;
     private String vendor_title;
 
-    public PersonalInfo(String user_id, String first_name, String last_name, String company, String full_name, String installer_id, String photo, String mobile, String phone, String vendor_title) {
+    public PersonalInfo(String user_id, String first_name, String last_name, String company,  String installer_id, String photo, String mobile, String phone, String vendor_title) {
         this.user_id = user_id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.company = company;
-        this.full_name = full_name;
+
         this.installer_id = installer_id;
         this.photo = photo;
         this.mobile = mobile;
@@ -69,13 +69,7 @@ public class PersonalInfo {
         this.last_name = last_name;
     }
 
-    public String getFull_name() {
-        return full_name;
-    }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
-    }
 
     public String getInstaller_id() {
         return installer_id;

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.myrep.rals.tehcnicianapps.Utility.SessionManager;
 import com.myrep.rals.tehcnicianapps.model.PersonalData;
@@ -22,6 +23,7 @@ public class ProfileFragment extends Fragment {
         // Required empty public constructor
     }
 
+    private TextView tvName;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public class ProfileFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.profile_fragment,container,false);
+        tvName = (TextView)view.findViewById(R.id.tvName);
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
         SessionManager sessionManager =  new SessionManager(getContext());
         String bearer = sessionManager.getToken();
@@ -44,7 +47,7 @@ public class ProfileFragment extends Fragment {
                 PersonalData info = response.body();
                 if(info.getStatus().equalsIgnoreCase("Ok")){
                     PersonalInfo data = info.getData();
-
+                    tvName.setText(data.getFirst_name());
                 }
             }
 
