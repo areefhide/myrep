@@ -44,6 +44,7 @@ public class ProfileFragment extends Fragment {
                 PersonalData info = response.body();
                 if(info.getStatus().equalsIgnoreCase("Ok")){
                     PersonalInfo data = info.getData();
+
                 }
             }
 

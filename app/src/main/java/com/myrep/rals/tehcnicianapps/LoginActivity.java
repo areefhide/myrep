@@ -55,6 +55,11 @@ public class LoginActivity extends AppCompatActivity {
         password = (EditText)findViewById(R.id.passwordtxt);
         loginbtn = (Button)findViewById(R.id.loginbtn);
         sessionManager = new SessionManager(ctx);
+        if(sessionManager.isLoggedIn()){
+            movetomainmenu = new Intent(ctx, HomeActivity.class);
+            startActivity(movetomainmenu);
+            finish();
+        }
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
