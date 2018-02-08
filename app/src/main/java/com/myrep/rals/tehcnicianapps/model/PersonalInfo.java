@@ -15,8 +15,9 @@ public class PersonalInfo {
     private String mobile;
     private String phone;
     private String vendor_title;
+    private String vendor_type;
 
-    public PersonalInfo(String user_id, String first_name, String last_name, String company,  String installer_id, String photo, String mobile, String phone, String vendor_title) {
+    public PersonalInfo(String user_id, String first_name, String last_name, String company,  String installer_id, String photo, String mobile, String phone, String vendor_title, String vendor_type) {
         this.user_id = user_id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -27,6 +28,7 @@ public class PersonalInfo {
         this.mobile = mobile;
         this.phone = phone;
         this.vendor_title = vendor_title;
+        this.vendor_type = vendor_type;
     }
 
     public String getCompany() {
@@ -101,5 +103,13 @@ public class PersonalInfo {
 
     public void setVendor_title(String vendor_title) {
         this.vendor_title = vendor_title;
+    }
+
+    public String getVendor_type() {
+        return vendor_type;
+    }
+
+    public void setVendor_type(String vendor_type) {
+        this.vendor_type = vendor_type;
     }
 }

@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class ApiClient {
-    public static final String BASE_URL = "http://myrep.nagasakti.team/api/v1/Mobile/";
+    public static final String BASE_URL = "http://myrep.nagasakti.team/api/v2/Mobile/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient(){

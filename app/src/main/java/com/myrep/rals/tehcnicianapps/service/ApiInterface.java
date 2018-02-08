@@ -20,7 +20,7 @@ import retrofit2.http.POST;
 public interface ApiInterface {
 
     @FormUrlEncoded
-    @POST("Login")
+    @POST("Viewtoken")
     Call<LogStatus> postLogin(@Field("email") String email, @Field("password") String password);
 
     @POST("Logout")

@@ -29,13 +29,23 @@
         android:text="Installation"
         android:textSize="22sp"
         android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Installation Intext Depok"
+        android:textSize="18sp"
+        android:textStyle="italic"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/tvName"
+        android:layout_below="@id/tvDescription"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp">
         <LinearLayout
@@ -45,6 +55,19 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_marginTop="11dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvPhone"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="phone"/>
 
         </LinearLayout>
 
@@ -55,7 +78,19 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_marginTop="11dp">
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mobile"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvMobile"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="Mobile"/>
         </LinearLayout>
 
     </LinearLayout>

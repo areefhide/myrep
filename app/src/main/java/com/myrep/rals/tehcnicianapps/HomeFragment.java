@@ -60,11 +60,10 @@ public class HomeFragment extends Fragment {
         gps = new GpsLocation();
         gps.Gpsloc(getActivity(), getActivity().getApplicationContext());
         final double lat = gps.latitude;
-        final double longi = gps.longitude;
-        final LatLng latLng = new LatLng(lat, longi);
+        final double lng = gps.longitude;
+        final LatLng latLng = new LatLng(lat, lng);
 
-        gps = new GpsLocation();
-        gps.Gpsloc(getActivity(), getActivity().getApplicationContext());
+
         mapView.onCreate(savedInstanceState);
         mapView.onResume();
         try {
@@ -90,8 +89,8 @@ public class HomeFragment extends Fragment {
                 gmaps.setMyLocationEnabled(true);
                 float zoomLevel = 16.0f;
                 CameraPosition position  = new Builder().target(latLng).build();
-                gmaps.animateCamera(CameraUpdateFactory.newCameraPosition(position));
-//                gmaps.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel));
+//                gmaps.animateCamera(CameraUpdateFactory.newCameraPosition(position));
+                gmaps.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel));
                 gmaps.getUiSettings().setAllGesturesEnabled(true);
             }
         });
