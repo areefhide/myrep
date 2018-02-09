@@ -57,8 +57,8 @@ public class HomeActivity extends AppCompatActivity {
     private void setupTabLayout() {
         tabLayout.getTabAt(0).setIcon(R.drawable.home_icon);
         tabLayout.getTabAt(1).setIcon(R.drawable.history_icon);
-        tabLayout.getTabAt(2).setIcon(R.drawable.star_icon);
-        tabLayout.getTabAt(3).setIcon(R.drawable.profile_icon);
+//        tabLayout.getTabAt(2).setIcon(R.drawable.star_icon);
+        tabLayout.getTabAt(2).setIcon(R.drawable.profile_icon);
 
         tabLayout.getTabAt(0).getIcon().setColorFilter(Color.parseColor("#4B7FD1"), PorterDuff.Mode.SRC_IN);
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -84,13 +84,13 @@ public class HomeActivity extends AppCompatActivity {
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
         Fragment fragHome = new HomeFragment();
         Fragment fragHistory = new HistoryFragment();
-        Fragment fragRatings = new RatingsFragment();
+//        Fragment fragRatings = new RatingsFragment();
         Fragment fragProfile = new ProfileFragment();
 
 
         adapter.addFragment(fragHome, "Home");
         adapter.addFragment(fragHistory, "History");
-        adapter.addFragment(fragRatings, "Ratings");
+//        adapter.addFragment(fragRatings, "Ratings");
         adapter.addFragment(fragProfile, "Profile");
         viewPager.setAdapter(adapter);
     }

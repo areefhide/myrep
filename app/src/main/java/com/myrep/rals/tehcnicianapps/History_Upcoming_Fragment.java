@@ -12,11 +12,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.myrep.rals.tehcnicianapps.Utility.RecyclerItemClickListener;
+import com.myrep.rals.tehcnicianapps.Utility.SessionManager;
 import com.myrep.rals.tehcnicianapps.Utility.recycleviewAdapter;
+import com.myrep.rals.tehcnicianapps.model.WoData;
+import com.myrep.rals.tehcnicianapps.model.WorkOrders;
 import com.myrep.rals.tehcnicianapps.model.recyleview;
+import com.myrep.rals.tehcnicianapps.service.ApiClient;
+import com.myrep.rals.tehcnicianapps.service.ApiInterface;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class History_Upcoming_Fragment extends Fragment {
 
@@ -65,6 +74,7 @@ public class History_Upcoming_Fragment extends Fragment {
         }*/
 
         view = inflater.inflate(R.layout.history_upcoming_fragment, container, false);
+
         initViews(view);
         return view;
     }
@@ -104,13 +114,37 @@ public class History_Upcoming_Fragment extends Fragment {
 
     private void prepareData() {
 
-        for(i=0; i<imagedraw.length; i++)
-        {
-            recyleview addList = new recyleview(imagedraw[i], name[i], date[i],status[i]);
-            historyList.add(addList);
-        }
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        SessionManager sessionManager =  new SessionManager(getContext());
+        String bearer = sessionManager.getToken();
 
-        recycleviewAdapter.notifyDataSetChanged();
+        Call<WorkOrders> ordersCall = apiInterface.getWorkOrders("Bearer " + bearer);
+        ordersCall.enqueue(new Callback<WorkOrders>() {
+            @Override
+            public void onResponse(Call<WorkOrders> call, Response<WorkOrders> response) {
+                WorkOrders orders = response.body();
+                if(orders.getStatus().equalsIgnoreCase("Ok")){
+                    for (WoData d : orders.getData()) {
+                        recyleview addList = new recyleview(imagedraw[0], d.getCustomer().getFirst_name(), d.getWorkorder().getWo_date(),d.getWorkorder().getJob_status());
+                        historyList.add(addList);
+                    }
+                    recycleviewAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<WorkOrders> call, Throwable t) {
+
+            }
+        });
+
+//        for(i=0; i<imagedraw.length; i++)
+//        {
+//            recyleview addList = new recyleview(imagedraw[i], name[i], date[i],status[i]);
+//            historyList.add(addList);
+//        }
+//
+//        recycleviewAdapter.notifyDataSetChanged();
 
     }
 }
